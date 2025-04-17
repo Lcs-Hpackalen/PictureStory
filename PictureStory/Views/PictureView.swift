@@ -35,20 +35,22 @@ struct PictureView: View {
                                     viewModel.favouritePicture()
                                 }, label: {
                                     Image(systemName: "heart")
+                                        .resizable()
+                                        .scaledToFit()
                                         .foregroundColor(.red)
                                 }
                                        )
-                                .scaledToFill()
                             }
                             else if viewModel.isFavourited == true{
                                 Button(action:{
                                     viewModel.unFavouritePicture()
                                 }, label: {
                                     Image(systemName: "heart.fill")
+                                        .resizable()
+                                        .scaledToFit()
                                         .foregroundColor(.red)
                                 }
                                 )
-                                .scaledToFill()
                             }
                                 
                         }
