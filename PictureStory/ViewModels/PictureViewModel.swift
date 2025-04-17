@@ -10,11 +10,13 @@ import Foundation
 @Observable
 class PictureViewModel {
     //MARK: Stored Properties
+    
+    var CurrentPicture: PictureInfo?
+    
     var Pictures: [PictureInfo] = []
     
     var FavouritePictures: [PictureInfo] = []
     
-    @Published var image: Data?
     
     
     //MARK: Computed Properties

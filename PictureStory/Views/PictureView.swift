@@ -8,11 +8,38 @@
 import SwiftUI
 
 struct PictureView: View {
+    //MARK: Stored Propeties
+    
+    var currentPicture: PictureInfo
+    
+    //MARK: Computed Properties
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            ZStack{
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(Color.indigo)
+                HStack{
+                    Image(currentPicture.Picture)
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                    VStack{
+                        HStack{
+                            VStack{
+                                Text("Where: \(currentPicture.Where)")
+                                Text("When: \(currentPicture.When)")
+                                Text ("Who: \(currentPicture.Who)")
+                            }
+                        }
+                        Text("Story: \(currentPicture.Story)")
+                    }
+                }
+                }
+            .scaledToFit()
+            }
+        }
     }
-}
 
 #Preview {
-    PictureView()
+    PictureView(currentPicture: example1)
 }
