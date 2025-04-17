@@ -9,7 +9,8 @@ import Foundation
 import SwiftUICore
 import SwiftUI
 
-struct PictureInfo {
+struct PictureInfo: Identifiable{
+    let id = UUID()
     let Picture: String
     let When: Date
     let Where: String

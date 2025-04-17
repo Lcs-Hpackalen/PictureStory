@@ -10,9 +10,9 @@ import Foundation
 class PictureViewModel {
     //MARK: Stored Properties
     
-    var CurrentPicture: PictureInfo?
+    var CurrentPicture: PictureInfo? 
     
-    var Pictures: [PictureInfo] = []
+    var Pictures: [PictureInfo] = [example1, example2, example3]
     
     var FavouritePictures: [PictureInfo] = []
     
@@ -31,7 +31,7 @@ class PictureViewModel {
             FavouritePictures.insert(CurrentPicture!, at: 0)
         }
         
-        print("There are \(FavouritePictures.count) quotes saved")
+        print("There are \(FavouritePictures.count) pictures favourited")
         
         isFavourited = true
     }
@@ -40,9 +40,11 @@ class PictureViewModel {
             FavouritePictures.remove(at: 0)
             }
         
-        print("There are \(FavouritePictures.count) quotes saved")
+        print("There are \(FavouritePictures.count) pictures favourited")
         
         isFavourited = false
     }
-
+func addNewPicture() {
+        
+    }
 }
