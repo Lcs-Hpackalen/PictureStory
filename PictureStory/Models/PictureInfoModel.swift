@@ -21,4 +21,4 @@ let example1 = PictureInfo(Picture: Image(systemName: "Example1"), When: Calenda
 
 let example2 = PictureInfo(Picture: Image(systemName: "Example2"), When: Calendar.current.date(from: DateComponents(year: 2024, month: 11, day: 15)) ?? Date(), Where: "Ottowa", Who: "Kotter, Jack, Zach, and Austin", Story: "Hannu is taking a picture at the last Vipers tournament with everyone in the car as Frank can't drive us back to the hotel")
 
-let example3 = PictureInfo(Picture: Image(systemName: "Example3"), When: Calendar.current.date(from: DateComponents(year: 2025, month: 02, day: 15)), Where: "At home in kingston", Who: "Hannu, Onni, Eetu, Kelley and Mikko", Story: "Hannus birthday dinner")
+let example3 = PictureInfo(Picture: Image(systemName: "Example3"), When: Calendar.current.date(from: DateComponents(year: 2025, month: 02, day: 15)) ?? Date(), Where: "At home in kingston", Who: "Hannu, Onni, Eetu, Kelley and Mikko", Story: "Hannus' birthday dinner")

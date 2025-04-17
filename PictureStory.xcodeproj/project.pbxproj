@@ -16,6 +16,7 @@
 		F4AF5A212DB13C8500965255 /* FavouritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A202DB13C8500965255 /* FavouritesListView.swift */; };
 		F4AF5A232DB13D4700965255 /* ThrowbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A222DB13D4700965255 /* ThrowbackView.swift */; };
 		F4AF5A272DB13D8500965255 /* PicturesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A262DB13D8500965255 /* PicturesListView.swift */; };
+		F4AF5A292DB13E3900965255 /* PictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A282DB13E2E00965255 /* PictureViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		F4AF5A202DB13C8500965255 /* FavouritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesListView.swift; sourceTree = "<group>"; };
 		F4AF5A222DB13D4700965255 /* ThrowbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowbackView.swift; sourceTree = "<group>"; };
 		F4AF5A262DB13D8500965255 /* PicturesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesListView.swift; sourceTree = "<group>"; };
+		F4AF5A282DB13E2E00965255 /* PictureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		F47CEFCA2DAFEA1D00D6AC29 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F4AF5A282DB13E2E00965255 /* PictureViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47CEFC52DAFEA0900D6AC29 /* TabView.swift in Sources */,
+				F4AF5A292DB13E3900965255 /* PictureViewModel.swift in Sources */,
 				F4AF5A212DB13C8500965255 /* FavouritesListView.swift in Sources */,
 				F4AF5A232DB13D4700965255 /* ThrowbackView.swift in Sources */,
 				F47CEFCD2DAFEABF00D6AC29 /* PictureInfoModel.swift in Sources */,
