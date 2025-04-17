@@ -10,8 +10,9 @@ import SwiftUI
 struct PictureView: View {
     //MARK: Stored Propeties
     
-    var currentPicture: PictureInfo
+    @Environment(PictureViewModel.self) var viewModel
     
+    var currentPicture: PictureInfo
     //MARK: Computed Properties
     var body: some View {
         NavigationStack{
@@ -19,7 +20,7 @@ struct PictureView: View {
                 RoundedRectangle(cornerRadius: 25)
                     .fill(Color.indigo)
                 HStack{
-                    Image(currentPicture.Picture)
+                    Image(currentPicture.Picture )
                         .resizable()
                         .scaledToFit()
                         .padding()
@@ -27,10 +28,31 @@ struct PictureView: View {
                         HStack{
                             VStack{
                                 Text("Where: \(currentPicture.Where)")
-                                Text("When: \(currentPicture.When)")
                                 Text ("Who: \(currentPicture.Who)")
                             }
+                            if viewModel.isFavourited == false{
+                                Button(action: {
+                                    viewModel.favouritePicture()
+                                }, label: {
+                                    Image(systemName: "heart")
+                                        .foregroundColor(.red)
+                                }
+                                       )
+                                .scaledToFill()
+                            }
+                            else if viewModel.isFavourited == true{
+                                Button(action:{
+                                    viewModel.unFavouritePicture()
+                                }, label: {
+                                    Image(systemName: "heart.fill")
+                                        .foregroundColor(.red)
+                                }
+                                )
+                                .scaledToFill()
+                            }
+                                
                         }
+                        Text("When: \(currentPicture.When)")
                         Text("Story: \(currentPicture.Story)")
                     }
                 }
@@ -41,5 +63,7 @@ struct PictureView: View {
     }
 
 #Preview {
+    
     PictureView(currentPicture: example1)
+        .environment(PictureViewModel())
 }
