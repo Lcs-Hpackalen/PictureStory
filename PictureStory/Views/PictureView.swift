@@ -13,19 +13,25 @@ struct PictureView: View {
     @Environment(PictureViewModel.self) var viewModel
     
    
+    
     //MARK: Computed Properties
     var body: some View {
         NavigationStack{
             
-            if let currentPicture = viewModel.CurrentPicture {
+            if let currentPicture = viewModel.CurrentPicture{
                 ZStack{
                     RoundedRectangle(cornerRadius: 25)
-                        .fill(Color.indigo)
+                        .fill(Color.cyan)
                     HStack{
-                        Image(currentPicture.Picture )
-                            .resizable()
-                            .scaledToFit()
-                            .padding()
+                        ZStack{
+                            Image(systemName: "PictureFrame")
+                                .resizable()
+                                .scaledToFill()
+                            Image(currentPicture.Picture)
+                                .resizable()
+                                .scaledToFit()
+                                .padding()
+                        }
                         VStack{
                             HStack{
                                 VStack{
@@ -56,7 +62,7 @@ struct PictureView: View {
                                 }
                                 
                             }
-                            Text("When: \(currentPicture.When)")
+                            Text("When: \(currentPicture.When.formatted(.dateTime.day().month().year()))")
                             Text("Story: \(currentPicture.Story)")
                         }
                     }

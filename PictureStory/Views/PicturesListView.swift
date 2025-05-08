@@ -20,8 +20,11 @@ struct PicturesListView: View {
                         .font(.system(size: 55))
                 }
                 .scaledToFit()
+                    
                 List(viewModel.Pictures) { currentPicture in
-                    PictureView()
+                    List(viewModel.Pictures){ picture in
+                        
+                    }
                 }
             }
         }

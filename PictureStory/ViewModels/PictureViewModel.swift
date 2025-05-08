@@ -10,9 +10,10 @@ import Foundation
 class PictureViewModel {
     //MARK: Stored Properties
     
-    var CurrentPicture: PictureInfo? 
+    var CurrentPicture: PictureInfo? = example2
     
     var Pictures: [PictureInfo] = [example1, example2, example3]
+
     
     var FavouritePictures: [PictureInfo] = []
     
@@ -22,8 +23,8 @@ class PictureViewModel {
     //MARK: Computed Properties
     
     
-    
-    
+    //MARK: Initializers
+   
     
     //MARK: Functions
     func favouritePicture() {
@@ -38,13 +39,15 @@ class PictureViewModel {
     func unFavouritePicture() {
         if self.CurrentPicture != nil {
             FavouritePictures.remove(at: 0)
-            }
+        }
         
         print("There are \(FavouritePictures.count) pictures favourited")
         
         isFavourited = false
     }
-func addNewPicture() {
+    func add (picture: PictureInfo){
+        
+        Pictures.append(picture)
         
     }
 }
