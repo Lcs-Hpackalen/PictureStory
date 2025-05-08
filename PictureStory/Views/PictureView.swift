@@ -24,12 +24,12 @@ struct PictureView: View {
                         .fill(Color.cyan)
                     HStack{
                         ZStack{
-                            Image(systemName: "PictureFrame")
-                                .resizable()
-                                .scaledToFill()
                             Image(currentPicture.Picture)
                                 .resizable()
                                 .scaledToFit()
+                                .padding()
+                                .background(Color(red: 0.87, green: 0.72, blue: 0.53))
+                            //Need to add that chatGPT helped with this code
                                 .padding()
                         }
                         VStack{
