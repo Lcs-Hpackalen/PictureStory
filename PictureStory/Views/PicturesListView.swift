@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PicturesListView: View {
-    @Environment(PictureViewModel.self) var viewModel
+    @EnvironmentObject var viewModel: PictureViewModel
     
     var body: some View {
         NavigationStack {
@@ -19,13 +19,13 @@ struct PicturesListView: View {
                     Text("Picture Story")
                         .font(.system(size: 55))
                 }
+                .padding()
                 .scaledToFit()
-                    
-                List(viewModel.Pictures) { currentPicture in
-                    List(viewModel.Pictures){ picture in
-                        
-                    }
-                }
+
+            List(viewModel.pictures) { currentPicture in
+                    PictureView (picture: currentPicture)
+                                }
+                                .listStyle(.plain)
             }
         }
     }
@@ -33,5 +33,5 @@ struct PicturesListView: View {
 
 #Preview {
     PicturesListView()
-        .environment(PictureViewModel())
+        .environmentObject(PictureViewModel())
 }

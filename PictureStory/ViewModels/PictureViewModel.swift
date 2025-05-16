@@ -6,20 +6,25 @@
 //
 
 import Foundation
-@Observable
-class PictureViewModel {
+
+import SwiftUI
+
+import Combine
+
+
+class PictureViewModel: ObservableObject {
     //MARK: Stored Properties
     
-    var CurrentPicture: PictureInfo? = example2
+    @Published var currentPicture: PictureInfo? = example2
     
-    var Pictures: [PictureInfo] = [example1, example2, example3]
+    @Published var pictures: [PictureInfo] = [example1, example2, example3]
 
     
-    var FavouritePictures: [PictureInfo] = []
+    @Published var favouritePictures: [PictureInfo] = []
     
-    var ErrorMessage: String? = "Please add a new Picture"
+    @Published var errorMessage: String? = "Please add a new Picture"
     
-    var isFavourited: Bool = false
+    @Published var isFavourited: Bool = false
     //MARK: Computed Properties
     
     
@@ -28,26 +33,26 @@ class PictureViewModel {
     
     //MARK: Functions
     func favouritePicture() {
-        if self.CurrentPicture != nil {
-            FavouritePictures.insert(CurrentPicture!, at: 0)
+        if self.currentPicture != nil {
+            favouritePictures.insert(currentPicture!, at: 0)
         }
         
-        print("There are \(FavouritePictures.count) pictures favourited")
+        print("There are \(favouritePictures.count) pictures favourited")
         
         isFavourited = true
     }
     func unFavouritePicture() {
-        if self.CurrentPicture != nil {
-            FavouritePictures.remove(at: 0)
+        if self.currentPicture != nil {
+            favouritePictures.remove(at: 0)
         }
         
-        print("There are \(FavouritePictures.count) pictures favourited")
+        print("There are \(favouritePictures.count) pictures favourited")
         
         isFavourited = false
     }
     func add (picture: PictureInfo){
         
-        Pictures.append(picture)
+        pictures.append(picture)
         
     }
 }

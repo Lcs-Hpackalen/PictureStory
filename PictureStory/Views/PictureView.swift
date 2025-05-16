@@ -9,22 +9,21 @@ import SwiftUI
 
 struct PictureView: View {
     //MARK: Stored Propeties
+    let picture: PictureInfo
     
-    @Environment(PictureViewModel.self) var viewModel
+    @EnvironmentObject var viewModel: PictureViewModel
     
    
     
     //MARK: Computed Properties
     var body: some View {
         NavigationStack{
-            
-            if let currentPicture = viewModel.CurrentPicture{
                 ZStack{
                     RoundedRectangle(cornerRadius: 25)
                         .fill(Color.cyan)
                     HStack{
                         ZStack{
-                            Image(currentPicture.Picture)
+                            Image(picture.Picture)
                                 .resizable()
                                 .scaledToFit()
                                 .padding()
@@ -35,8 +34,8 @@ struct PictureView: View {
                         VStack{
                             HStack{
                                 VStack{
-                                    Text("Where: \(currentPicture.Where) ")
-                                    Text ("Who: \(currentPicture.Who)")
+                                    Text("Where: \(picture.Where) ")
+                                    Text ("Who: \(picture.Who)")
                                 }
                                 if viewModel.isFavourited == false{
                                     Button(action: {
@@ -62,8 +61,8 @@ struct PictureView: View {
                                 }
                                 
                             }
-                            Text("When: \(currentPicture.When.formatted(.dateTime.day().month().year()))")
-                            Text("Story: \(currentPicture.Story)")
+                            Text("When: \(picture.When.formatted(.dateTime.day().month().year()))")
+                            Text("Story: \(picture.Story)")
                         }
                     }
                 }
@@ -71,11 +70,9 @@ struct PictureView: View {
             }
         }
     }
-}
     
 
 #Preview {
-    
-    PictureView()
-        .environment(PictureViewModel())
+    PictureView(picture: example1)
+        .environmentObject(PictureViewModel())
 }

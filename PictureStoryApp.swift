@@ -17,7 +17,7 @@ struct PictureStoryApp: App {
     var body: some Scene {
         WindowGroup {
             TabView()
-                .environment(ViewModel)
+                .environmentObject(ViewModel)
         }
     }
 }
