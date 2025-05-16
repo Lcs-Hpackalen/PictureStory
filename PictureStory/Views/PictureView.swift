@@ -37,27 +37,24 @@ struct PictureView: View {
                                     Text("Where: \(picture.Where) ")
                                     Text ("Who: \(picture.Who)")
                                 }
-                                if viewModel.isFavourited == false{
+                                if viewModel.isFavourited(picture) == false {
                                     Button(action: {
-                                        viewModel.favouritePicture()
-                                    }, label: {
+                                        viewModel.toggleFavourite(for: picture)
+                                    }) {
                                         Image(systemName: "heart")
                                             .resizable()
                                             .scaledToFit()
                                             .foregroundColor(.red)
                                     }
-                                    )
-                                }
-                                else if viewModel.isFavourited == true{
-                                    Button(action:{
-                                        viewModel.unFavouritePicture()
-                                    }, label: {
+                                } else {
+                                    Button(action: {
+                                        viewModel.toggleFavourite(for: picture)
+                                    }) {
                                         Image(systemName: "heart.fill")
                                             .resizable()
                                             .scaledToFit()
                                             .foregroundColor(.red)
                                     }
-                                    )
                                 }
                                 
                             }

@@ -24,7 +24,7 @@ class PictureViewModel: ObservableObject {
     
     @Published var errorMessage: String? = "Please add a new Picture"
     
-    @Published var isFavourited: Bool = false
+    @Published var favouritePictureIDs: Set<UUID> = []
     //MARK: Computed Properties
     
     
@@ -32,23 +32,16 @@ class PictureViewModel: ObservableObject {
    
     
     //MARK: Functions
-    func favouritePicture() {
-        if self.currentPicture != nil {
-            favouritePictures.insert(currentPicture!, at: 0)
-        }
-        
-        print("There are \(favouritePictures.count) pictures favourited")
-        
-        isFavourited = true
+    func isFavourited(_ picture: PictureInfo) -> Bool {
+        favouritePictureIDs.contains(picture.id)
     }
-    func unFavouritePicture() {
-        if self.currentPicture != nil {
-            favouritePictures.remove(at: 0)
+
+    func toggleFavourite(for picture: PictureInfo) {
+        if favouritePictureIDs.contains(picture.id) {
+            favouritePictureIDs.remove(picture.id)
+        } else {
+            favouritePictureIDs.insert(picture.id)
         }
-        
-        print("There are \(favouritePictures.count) pictures favourited")
-        
-        isFavourited = false
     }
     func add (picture: PictureInfo){
         
