@@ -26,14 +26,17 @@ struct DetailPictureView: View {
                         .font(.system(size: 33))
                 }
                 .scaledToFit()
-                
-                Image(picture.Picture)
-                    .resizable()
-                    .scaledToFill()
-                
                 ZStack{
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.white)
+                    Color.brown
+                    Image(picture.Picture)
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                }
+                ZStack{
+                    Rectangle()
+                        .fill(Color.mint)
+                        .ignoresSafeArea()
                     VStack{
                                 HStack{
                                     Text("Who:")
