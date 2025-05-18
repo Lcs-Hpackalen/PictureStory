@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F462D5D02DD95B6700D13460 /* DetailPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F462D5CF2DD95B6700D13460 /* DetailPictureView.swift */; };
 		F47CEFC52DAFEA0900D6AC29 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47CEFC22DAFEA0900D6AC29 /* TabView.swift */; };
 		F47CEFC62DAFEA0900D6AC29 /* PictureStoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47CEFC32DAFEA0900D6AC29 /* PictureStoryApp.swift */; };
 		F47CEFC72DAFEA0900D6AC29 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47CEFBF2DAFEA0900D6AC29 /* Preview Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F462D5CF2DD95B6700D13460 /* DetailPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPictureView.swift; sourceTree = "<group>"; };
 		F47CEFAE2DAFE9DD00D6AC29 /* PictureStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictureStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47CEFBF2DAFEA0900D6AC29 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F47CEFC12DAFEA0900D6AC29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				F4AF5A202DB13C8500965255 /* FavouritesListView.swift */,
 				F4AF5A222DB13D4700965255 /* ThrowbackView.swift */,
 				F4AF5A262DB13D8500965255 /* PicturesListView.swift */,
+				F462D5CF2DD95B6700D13460 /* DetailPictureView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			files = (
 				F47CEFC52DAFEA0900D6AC29 /* TabView.swift in Sources */,
 				F4AF5A292DB13E3900965255 /* PictureViewModel.swift in Sources */,
+				F462D5D02DD95B6700D13460 /* DetailPictureView.swift in Sources */,
 				F4AF5A212DB13C8500965255 /* FavouritesListView.swift in Sources */,
 				F4AF5A232DB13D4700965255 /* ThrowbackView.swift in Sources */,
 				F47CEFCD2DAFEABF00D6AC29 /* PictureInfoModel.swift in Sources */,
