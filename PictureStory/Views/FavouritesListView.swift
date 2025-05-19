@@ -8,11 +8,44 @@
 import SwiftUI
 
 struct FavouritesListView: View {
+    //MARK: Stored Properties
+    @EnvironmentObject var viewModel: PictureViewModel
+    
+    
+    
+    var favouritePictures: [PictureInfo] {
+            viewModel.pictures.filter { picture in
+                viewModel.favouritePictureIDs.contains(picture.id)
+            }
+        }
+    //MARK: Computed Properties
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack{
+                ZStack{
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.pink)
+                    Text("Favourite Pictures")
+                        .font(.system(size: 55))
+                }
+                .padding()
+                .scaledToFit()
+
+                List(favouritePictures) { currentPicture in
+                    
+                    NavigationLink{ DetailPictureView(picture: currentPicture)
+                    } label: {
+                        PictureView(picture: currentPicture)
+                    
+                    }
+                }
+                                .listStyle(.plain)
+            }
+        }
     }
 }
 
 #Preview {
     FavouritesListView()
+        .environmentObject(PictureViewModel())
 }
