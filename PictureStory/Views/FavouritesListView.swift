@@ -26,7 +26,7 @@ struct FavouritesListView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.pink)
                     Text("Favourite Pictures")
-                        .font(.system(size: 55))
+                        .font(.system(size: 40))
                 }
                 .padding()
                 .scaledToFit()

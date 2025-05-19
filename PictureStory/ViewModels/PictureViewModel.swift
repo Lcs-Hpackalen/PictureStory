@@ -46,6 +46,5 @@ class PictureViewModel: ObservableObject {
     func add (picture: PictureInfo){
         
         pictures.append(picture)
-        
     }
 }
