@@ -33,9 +33,9 @@ struct FavouritesListView: View {
 
                 List(favouritePictures) { currentPicture in
                     
-                    NavigationLink{ DetailPictureView(picture: currentPicture)
+                    NavigationLink{ DetailPictureView(currentPicture: currentPicture)
                     } label: {
-                        PictureView(picture: currentPicture)
+                        PictureView(currentPicture: currentPicture)
                     
                     }
                 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailPictureView: View {
     //MARK: Stored Properties
-    let picture: PictureInfo
+    let currentPicture: PictureInfo
     
     @EnvironmentObject var viewModel: PictureViewModel
     
@@ -26,9 +26,9 @@ struct DetailPictureView: View {
                             .fill(Color.blue)
                             .ignoresSafeArea()
                         HStack{
-                            if viewModel.isFavourited(picture) == false {
+                            if viewModel.isFavourited(currentPicture) == false {
                                 Button(action: {
-                                    viewModel.toggleFavourite(for: picture)
+                                    viewModel.toggleFavourite(for: currentPicture)
                                 }) {
                                     Image(systemName: "heart")
                                         .resizable()
@@ -37,7 +37,7 @@ struct DetailPictureView: View {
                                 }
                             } else {
                                 Button(action: {
-                                    viewModel.toggleFavourite(for: picture)
+                                    viewModel.toggleFavourite(for: currentPicture)
                                 }) {
                                     Image(systemName: "heart.fill")
                                         .resizable()
@@ -54,17 +54,21 @@ struct DetailPictureView: View {
                     ZStack{
                         Color.brown
                             .scaledToFit()
-                        Image(picture.Picture)
-                            .resizable()
-                            .scaledToFit()
-                            .padding()
+                        if let uiImage = UIImage(data: currentPicture.Picture) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFit()
+                        } else {
+                            Text("Image failed to load")
+                        }
+                            
                     }
                     VStack{
                         HStack{
                             Text("Who:")
                                 .font(.system(size: 30))
                                 .bold()
-                            Text("\(picture.Who)")
+                            Text("\(currentPicture.Who)")
                                 .font(.system(size: 20))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
@@ -72,7 +76,7 @@ struct DetailPictureView: View {
                             Text("Where:")
                                 .font(.system(size: 30))
                                 .bold()
-                            Text("\(picture.Where)")
+                            Text("\(currentPicture.Where)")
                                 .font(.system(size: 20))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
@@ -80,7 +84,7 @@ struct DetailPictureView: View {
                             Text("When:")
                                 .font(.system(size: 30))
                                 .bold()
-                            Text("\(picture.When.formatted(.dateTime.day().month().year()))")
+                            Text("\(currentPicture.When.formatted(.dateTime.day().month().year()))")
                                 .font(.system(size: 20))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
@@ -89,7 +93,7 @@ struct DetailPictureView: View {
                                 .font(.system(size: 30))
                                 .bold()
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            Text("\(picture.Story)")
+                            Text("\(currentPicture.Story)")
                                 .font(.system(size: 20))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
@@ -101,6 +105,6 @@ struct DetailPictureView: View {
 }
 
 #Preview {
-    DetailPictureView(picture: example2)
+    DetailPictureView(currentPicture: example2)
         .environmentObject(PictureViewModel())
 }

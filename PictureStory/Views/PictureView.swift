@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PictureView: View {
     //MARK: Stored Propeties
-    let picture: PictureInfo
+    let currentPicture: PictureInfo
     
     @EnvironmentObject var viewModel: PictureViewModel
     
@@ -23,13 +23,15 @@ struct PictureView: View {
                 RoundedRectangle(cornerRadius: 25)
                     .fill(Color.cyan)
                 HStack{
-                    Image(picture.Picture)
-                        .resizable()
-                        .scaledToFit()
-                        .padding()
-                        .background(Color(red: 0.87, green: 0.72, blue: 0.53))
+                    if let uiImage = UIImage(data: currentPicture.Picture) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                            .background(Color(red: 0.87, green: 0.72, blue: 0.53))
+                    } else {
+                        Text("Image failed to load")
+                    }
                     //Need to add that chatGPT helped with this code
-                        .padding()
                 }
             }
         }
@@ -39,6 +41,6 @@ struct PictureView: View {
     
 
 #Preview {
-    PictureView(picture: example1)
+    PictureView(currentPicture: example1)
         .environmentObject(PictureViewModel())
 }

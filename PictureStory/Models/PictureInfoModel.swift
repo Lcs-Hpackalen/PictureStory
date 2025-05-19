@@ -18,8 +18,26 @@ struct PictureInfo: Identifiable{
     let Story: String
 }
  
-let example1 = PictureInfo(Picture: Image(Example1), When: Calendar.current.date(from : DateComponents(year: 2024, month: 11, day: 15)) ?? Date(), Where: "Kingston", Who: "Hannu and Dr.Borshnick", Story: "Dr.Borshnick was the doctor that helped Hannu throughout his achelies injury this is the day Hannu was told he's aloud back on the ice")
+let example1 = PictureInfo(
+    Picture: UIImage(named: "Example1")!.jpegData(compressionQuality: 1.0)!,
+    When: Calendar.current.date(from : DateComponents(year: 2024, month: 11, day: 15)) ?? Date(),
+    Where: "Kingston",
+    Who: "Hannu and Dr.Borshnick",
+    Story: "Dr.Borshnick helped Hannu through his Achilles injury. This was the day he was cleared to return to the ice."
+)
 
-let example2 = PictureInfo(Picture: "Example2", When: Calendar.current.date(from: DateComponents(year: 2024, month: 11, day: 15)) ?? Date(), Where: "Ottawa", Who: "Kotter, Jack, Zach, and Austin", Story: "Hannu is taking a picture at the last Vipers tournament with everyone in the car as Frank can't drive us back to the hotel")
+let example2 = PictureInfo(
+    Picture: UIImage(named: "Example2")!.jpegData(compressionQuality: 1.0)!,
+    When: Calendar.current.date(from: DateComponents(year: 2024, month: 11, day: 15)) ?? Date(),
+    Where: "Ottawa",
+    Who: "Kotter, Jack, Zach, and Austin",
+    Story: "Final Vipers tournament; everyone in the car as Frank couldn't drive back to the hotel."
+)
 
-let example3 = PictureInfo(Picture:"Example3", When: Calendar.current.date(from: DateComponents(year: 2025, month: 02, day: 15)) ?? Date(), Where: "At home in kingston", Who: "Hannu, Onni, Eetu, Kelley and Mikko", Story: "Hannus' birthday dinner")
+let example3 = PictureInfo(
+    Picture: UIImage(named: "Example3")!.jpegData(compressionQuality: 1.0)!,
+    When: Calendar.current.date(from: DateComponents(year: 2025, month: 2, day: 15)) ?? Date(),
+    Where: "At home in Kingston",
+    Who: "Hannu, Onni, Eetu, Kelley, and Mikko",
+    Story: "Hannu's birthday dinner."
+)
