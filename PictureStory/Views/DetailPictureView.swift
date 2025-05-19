@@ -17,35 +17,35 @@ struct DetailPictureView: View {
     //MARK: Computed Properties
     var body: some View {
         NavigationStack{
-            VStack{
-                ZStack{
-                    Rectangle()
-                        .fill(Color.blue)
-                        .ignoresSafeArea()
-                    Text("Picture and Info")
-                        .font(.system(size: 33))
-                }
-                .scaledToFit()
-                ZStack{
-                    Color.brown
-                    Image(picture.Picture)
-                        .resizable()
-                        .scaledToFit()
-                        .padding()
-                }
-                ZStack{
-                    Rectangle()
-                        .fill(Color.mint)
-                        .ignoresSafeArea()
+            ZStack{
+                Color.orange
+                    .ignoresSafeArea()
+                VStack{
+                    ZStack{
+                        Rectangle()
+                            .fill(Color.blue)
+                            .ignoresSafeArea()
+                        Text("Picture and Info")
+                            .font(.system(size: 33))
+                    }
+                    .scaledToFit()
+                    ZStack{
+                        Color.brown
+                            .scaledToFit()
+                        Image(picture.Picture)
+                            .resizable()
+                            .scaledToFit()
+                            .padding()
+                    }
                     VStack{
-                                HStack{
-                                    Text("Who:")
-                                        .font(.system(size: 30))
-                                        .bold()
-                                    Text("\(picture.Who)")
-                                        .font(.system(size: 20))
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                }
+                        HStack{
+                            Text("Who:")
+                                .font(.system(size: 30))
+                                .bold()
+                            Text("\(picture.Who)")
+                                .font(.system(size: 20))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
                         HStack{
                             Text("Where:")
                                 .font(.system(size: 30))
