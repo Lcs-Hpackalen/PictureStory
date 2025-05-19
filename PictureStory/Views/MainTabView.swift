@@ -30,7 +30,7 @@ struct MainTabView: View {
             
             ThrowbackView()
                 .tabItem {
-                    Image(systemName: "Clock")
+                    Image(systemName: "clock.fill")
                     Text("Throwback")
                 }
             

@@ -18,7 +18,7 @@ struct PictureInfo: Identifiable{
     let Story: String
 }
  
-let example1 = PictureInfo(
+let example4 = PictureInfo(
     Picture: UIImage(named: "Example1")!.jpegData(compressionQuality: 1.0)!,
     When: Calendar.current.date(from : DateComponents(year: 2024, month: 11, day: 15)) ?? Date(),
     Where: "Kingston",

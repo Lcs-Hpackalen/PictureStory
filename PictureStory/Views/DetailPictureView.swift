@@ -18,12 +18,12 @@ struct DetailPictureView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                Color.orange
+                Color.purple
                     .ignoresSafeArea()
                 VStack{
                     ZStack{
                         Rectangle()
-                            .fill(Color.blue)
+                            .fill(Color.green)
                             .ignoresSafeArea()
                         HStack{
                             if viewModel.isFavourited(currentPicture) == false {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct PictureView: View {
     //MARK: Stored Propeties
@@ -22,17 +23,18 @@ struct PictureView: View {
             ZStack{
                 RoundedRectangle(cornerRadius: 25)
                     .fill(Color.cyan)
-                HStack{
-                    if let uiImage = UIImage(data: currentPicture.Picture) {
+                
+                if let uiImage = UIImage(data: currentPicture.Picture) {
                         Image(uiImage: uiImage)
                             .resizable()
                             .scaledToFit()
-                            .background(Color(red: 0.87, green: 0.72, blue: 0.53))
+                            .padding()
+                            .background(Color.brown)
+                            .padding()
                     } else {
                         Text("Image failed to load")
                     }
-                    //Need to add that chatGPT helped with this code
-                }
+                
             }
         }
                 .scaledToFit()
@@ -41,6 +43,6 @@ struct PictureView: View {
     
 
 #Preview {
-    PictureView(currentPicture: example1)
+    PictureView(currentPicture: example3)
         .environmentObject(PictureViewModel())
 }
