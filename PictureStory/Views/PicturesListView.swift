@@ -15,9 +15,13 @@ struct PicturesListView: View {
     var body: some View {
         NavigationStack {
             VStack{
+                HStack{
+                    
+                }
                 ZStack{
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.pink)
+                    
                     Text("Picture Story")
                         .font(.system(size: 55))
                 }
@@ -35,6 +39,7 @@ struct PicturesListView: View {
                                 .listStyle(.plain)
             }
         }
+        
     }
 }
 

@@ -13,8 +13,9 @@
 		F47CEFC72DAFEA0900D6AC29 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47CEFBF2DAFEA0900D6AC29 /* Preview Assets.xcassets */; };
 		F47CEFC82DAFEA0900D6AC29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47CEFC12DAFEA0900D6AC29 /* Assets.xcassets */; };
 		F47CEFCD2DAFEABF00D6AC29 /* PictureInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47CEFCC2DAFEABF00D6AC29 /* PictureInfoModel.swift */; };
+		F49E659B2DDB97DA00B53EEF /* AddNewPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E659A2DDB97DA00B53EEF /* AddNewPictureView.swift */; };
 		F4AF5A1F2DB13C6F00965255 /* PictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A1E2DB13C6F00965255 /* PictureView.swift */; };
-		F4AF5A212DB13C8500965255 /* FavouritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A202DB13C8500965255 /* FavouritesListView.swift */; };
+		F4AF5A212DB13C8500965255 /* favouritePictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A202DB13C8500965255 /* favouritePictures.swift */; };
 		F4AF5A232DB13D4700965255 /* ThrowbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A222DB13D4700965255 /* ThrowbackView.swift */; };
 		F4AF5A272DB13D8500965255 /* PicturesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A262DB13D8500965255 /* PicturesListView.swift */; };
 		F4AF5A292DB13E3900965255 /* PictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A282DB13E2E00965255 /* PictureViewModel.swift */; };
@@ -28,8 +29,9 @@
 		F47CEFC22DAFEA0900D6AC29 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		F47CEFC32DAFEA0900D6AC29 /* PictureStoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureStoryApp.swift; sourceTree = "<group>"; };
 		F47CEFCC2DAFEABF00D6AC29 /* PictureInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInfoModel.swift; sourceTree = "<group>"; };
+		F49E659A2DDB97DA00B53EEF /* AddNewPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPictureView.swift; sourceTree = "<group>"; };
 		F4AF5A1E2DB13C6F00965255 /* PictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureView.swift; sourceTree = "<group>"; };
-		F4AF5A202DB13C8500965255 /* FavouritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesListView.swift; sourceTree = "<group>"; };
+		F4AF5A202DB13C8500965255 /* favouritePictures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favouritePictures.swift; sourceTree = "<group>"; };
 		F4AF5A222DB13D4700965255 /* ThrowbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowbackView.swift; sourceTree = "<group>"; };
 		F4AF5A262DB13D8500965255 /* PicturesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesListView.swift; sourceTree = "<group>"; };
 		F4AF5A282DB13E2E00965255 /* PictureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewModel.swift; sourceTree = "<group>"; };
@@ -104,10 +106,11 @@
 			children = (
 				F47CEFC22DAFEA0900D6AC29 /* MainTabView.swift */,
 				F4AF5A1E2DB13C6F00965255 /* PictureView.swift */,
-				F4AF5A202DB13C8500965255 /* FavouritesListView.swift */,
+				F4AF5A202DB13C8500965255 /* favouritePictures.swift */,
 				F4AF5A222DB13D4700965255 /* ThrowbackView.swift */,
 				F4AF5A262DB13D8500965255 /* PicturesListView.swift */,
 				F462D5CF2DD95B6700D13460 /* DetailPictureView.swift */,
+				F49E659A2DDB97DA00B53EEF /* AddNewPictureView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,10 +188,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F49E659B2DDB97DA00B53EEF /* AddNewPictureView.swift in Sources */,
 				F47CEFC52DAFEA0900D6AC29 /* MainTabView.swift in Sources */,
 				F4AF5A292DB13E3900965255 /* PictureViewModel.swift in Sources */,
 				F462D5D02DD95B6700D13460 /* DetailPictureView.swift in Sources */,
-				F4AF5A212DB13C8500965255 /* FavouritesListView.swift in Sources */,
+				F4AF5A212DB13C8500965255 /* favouritePictures.swift in Sources */,
 				F4AF5A232DB13D4700965255 /* ThrowbackView.swift in Sources */,
 				F47CEFCD2DAFEABF00D6AC29 /* PictureInfoModel.swift in Sources */,
 				F4AF5A272DB13D8500965255 /* PicturesListView.swift in Sources */,
