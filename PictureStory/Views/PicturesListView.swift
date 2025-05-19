@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct PicturesListView: View {
+    //MARK: Stored Properties
     @EnvironmentObject var viewModel: PictureViewModel
     
+    //MARK: Computed Properties
     var body: some View {
         NavigationStack {
             VStack{
@@ -22,9 +24,14 @@ struct PicturesListView: View {
                 .padding()
                 .scaledToFit()
 
-            List(viewModel.pictures) { currentPicture in
-                    PictureView (picture: currentPicture)
-                                }
+                List(viewModel.pictures) { currentPicture in
+                    
+                    NavigationLink{ DetailPictureView(picture: currentPicture)
+                    } label: {
+                        PictureView(picture: currentPicture)
+                    
+                    }
+                }
                                 .listStyle(.plain)
             }
         }

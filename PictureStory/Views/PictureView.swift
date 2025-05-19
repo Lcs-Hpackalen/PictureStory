@@ -18,55 +18,24 @@ struct PictureView: View {
     //MARK: Computed Properties
     var body: some View {
         NavigationStack{
-                ZStack{
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(Color.cyan)
-                    HStack{
-                        ZStack{
-                            Image(picture.Picture)
-                                .resizable()
-                                .scaledToFit()
-                                .padding()
-                                .background(Color(red: 0.87, green: 0.72, blue: 0.53))
-                            //Need to add that chatGPT helped with this code
-                                .padding()
-                        }
-                        VStack{
-                            HStack{
-                                VStack{
-                                    Text("Where: \(picture.Where) ")
-                                    Text ("Who: \(picture.Who)")
-                                }
-                                if viewModel.isFavourited(picture) == false {
-                                    Button(action: {
-                                        viewModel.toggleFavourite(for: picture)
-                                    }) {
-                                        Image(systemName: "heart")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .foregroundColor(.red)
-                                    }
-                                } else {
-                                    Button(action: {
-                                        viewModel.toggleFavourite(for: picture)
-                                    }) {
-                                        Image(systemName: "heart.fill")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .foregroundColor(.red)
-                                    }
-                                }
-                                
-                            }
-                            Text("When: \(picture.When.formatted(.dateTime.day().month().year()))")
-                            Text("Story: \(picture.Story)")
-                        }
-                    }
+            
+            ZStack{
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(Color.cyan)
+                HStack{
+                    Image(picture.Picture)
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                        .background(Color(red: 0.87, green: 0.72, blue: 0.53))
+                    //Need to add that chatGPT helped with this code
+                        .padding()
                 }
+            }
+        }
                 .scaledToFit()
             }
         }
-    }
     
 
 #Preview {

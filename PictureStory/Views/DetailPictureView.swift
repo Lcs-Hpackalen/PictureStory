@@ -25,8 +25,30 @@ struct DetailPictureView: View {
                         Rectangle()
                             .fill(Color.blue)
                             .ignoresSafeArea()
-                        Text("Picture and Info")
-                            .font(.system(size: 33))
+                        HStack{
+                            if viewModel.isFavourited(picture) == false {
+                                Button(action: {
+                                    viewModel.toggleFavourite(for: picture)
+                                }) {
+                                    Image(systemName: "heart")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .foregroundColor(.red)
+                                }
+                            } else {
+                                Button(action: {
+                                    viewModel.toggleFavourite(for: picture)
+                                }) {
+                                    Image(systemName: "heart.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .foregroundColor(.red)
+                                }
+                            }
+                            Text("Picture and Info")
+                                .font(.system(size: 33))
+                            Spacer()
+                        }
                     }
                     .scaledToFit()
                     ZStack{
