@@ -33,7 +33,7 @@ struct ThrowbackView: View {
                         ZStack{
                             Color.brown
                                 .scaledToFit()
-                            if let uiImage = UIImage(data: viewModel.) {
+                            if let uiImage = UIImage(data: currentPicture!.Picture) {
                                     Image(uiImage: uiImage)
                                         .resizable()
                                         .scaledToFit()

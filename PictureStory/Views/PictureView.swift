@@ -36,6 +36,7 @@ struct PictureView: View {
                     }
                 
             }
+            
         }
                 .scaledToFit()
             }

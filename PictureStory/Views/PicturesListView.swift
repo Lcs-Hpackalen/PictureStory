@@ -36,8 +36,14 @@ struct PicturesListView: View {
                         NavigationLink{ DetailPictureView(currentPicture: currentPicture)
                         } label: {
                             PictureView(currentPicture: currentPicture)
-                            
                         }
+                        .swipeActions(edge: .leading) {
+                                        Button(role: .destructive) {
+                                            viewModel.deletePicture(Picture: currentPicture)
+                                        } label: {
+                                            Label("Delete", systemImage: "trash")
+                                        }
+                                    }
                     }
                     .listStyle(.plain)
                 }
