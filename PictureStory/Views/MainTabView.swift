@@ -33,9 +33,6 @@ struct MainTabView: View {
                     Image(systemName: "clock.fill")
                     Text("Throwback")
                 }
-            
-            
-            
         }
     }
 }
