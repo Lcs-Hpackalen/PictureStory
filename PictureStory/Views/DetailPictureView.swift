@@ -58,6 +58,7 @@ struct DetailPictureView: View {
                             Image(uiImage: uiImage)
                                 .resizable()
                                 .scaledToFit()
+                                .padding()
                         } else {
                             Text("Image failed to load")
                         }

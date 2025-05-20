@@ -44,6 +44,14 @@ struct PicturesListView: View {
                                             Label("Delete", systemImage: "trash")
                                         }
                                     }
+                        .swipeActions(edge: .trailing) {
+                            Button {
+                                    viewModel.toggleFavourite(for: currentPicture)
+                                } label: {
+                                    Label("Favourite", systemImage: "heart")
+                                }
+                                .tint(.pink)
+                            }
                     }
                     .listStyle(.plain)
                 }
