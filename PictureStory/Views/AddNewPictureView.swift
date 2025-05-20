@@ -69,7 +69,7 @@ struct AddNewPictureView: View {
                                         Who: people,
                                         Story: story
                                     )
-                                    viewModel.add(picture: newPicture)
+                                    viewModel.addPicture(picture: newPicture)
                                     
                                     
                                     isShowing = false
