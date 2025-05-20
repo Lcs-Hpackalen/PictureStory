@@ -28,6 +28,13 @@ struct AddNewPictureView: View {
             Form {
                 Section(header: Text("Add an Image")){
                     PhotosPicker("Select A Photo", selection: $selectedItem, matching: .images)
+                        .onChange(of: selectedItem) { newItem in
+                            Task {
+                                if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                    imageData = data
+                                }
+                            }
+                        }
                     
                     if let imageData, let uiImage = UIImage(data: imageData) {
                         Image(uiImage: uiImage)
@@ -49,10 +56,12 @@ struct AddNewPictureView: View {
                 }
             }
             .navigationTitle("Add Picture")
-                        .toolbar {
+                        .toolbar{
                             ToolbarItem(placement: .primaryAction) {
-                                Button("Done") {
-                                    guard let imageData else { return } // Ensure image is selected
+                                Button {
+                                    guard let imageData = imageData else {
+                                        return
+                                    }
                                     let newPicture = PictureInfo(
                                         Picture: imageData,
                                         When: date,
@@ -61,14 +70,13 @@ struct AddNewPictureView: View {
                                         Story: story
                                     )
                                     viewModel.add(picture: newPicture)
+                                    
+                                    
                                     isShowing = false
-                                }
-                            }
-                        }
-                        .onChange(of: selectedItem) { newItem in
-                            Task {
-                                if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                    imageData = data
+                                    
+                                
+                                } label: {
+                                    Text("Done")
                                 }
                             }
                         }

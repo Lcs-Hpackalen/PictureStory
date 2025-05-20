@@ -43,8 +43,7 @@ class PictureViewModel: ObservableObject {
             favouritePictureIDs.insert(picture.id)
         }
     }
-    func add (picture: PictureInfo){
-        
-        pictures.append(picture)
+    func add(picture: PictureInfo) {
+        pictures.insert(picture, at: 0)
     }
 }
