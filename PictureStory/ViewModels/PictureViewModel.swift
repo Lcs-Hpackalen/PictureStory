@@ -24,6 +24,8 @@ class PictureViewModel: ObservableObject {
     
     @Published var errorMessage: String? = "Please add a new Picture"
     
+    @Published var throwbackPictures: [PictureInfo] = []
+    
     @Published var favouritePictureIDs: Set<UUID> = [example4.id, example2.id]
     //MARK: Computed Properties
     

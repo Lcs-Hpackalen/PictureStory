@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ThrowbackView: View {
     //MARK: Stored Properties
+    var currentPicture: PictureInfo?
+    
     @EnvironmentObject var viewModel: PictureViewModel
     
     @State var isFlipped: Bool = false
@@ -20,20 +22,35 @@ struct ThrowbackView: View {
                 ZStack{
                     Color.pink.ignoresSafeArea()
                     VStack{
-                        ZStack{
+                        ZStack(alignment: .top){
                             Ribbon()
                             Text("Throwback")
                                 .font(.system(size: 32, weight: .bold, design: .default))
                                 .foregroundColor(.white)
+                                .padding(.top)
+                                .padding(.top)
                         }
-                        
+                        ZStack{
+                            Color.brown
+                                .scaledToFit()
+                            if let uiImage = UIImage(data: viewModel.) {
+                                    Image(uiImage: uiImage)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .padding()
+                                        .background(Color.brown)
+                                        .padding()
+                                } else {
+                                    Text("Image failed to load")
+                                }
+                        }
                     }
                 }
             }
         }
     }
 }
-
 #Preview {
-    ThrowbackView()
+    ThrowbackView(currentPicture: example3)
+        .environmentObject(PictureViewModel())
 }
