@@ -31,7 +31,9 @@ class PictureViewModel: ObservableObject {
     
     
     //MARK: Initializers
-   
+    init(){
+        loadSavedPictures()
+    }
     
     //MARK: Functions
     func isFavourited(_ picture: PictureInfo) -> Bool {
@@ -47,14 +49,16 @@ class PictureViewModel: ObservableObject {
     }
     func addPicture(picture: PictureInfo) {
         pictures.insert(picture, at: 0)
+        presistPictures()
     }
     
     func deletePicture(Picture: PictureInfo){
         pictures.removeAll { currentPicture in
             return currentPicture.id == Picture.id
         }
+        presistPictures()
     }
-    func loadFavouriteQuotes() {
+    func loadSavedPictures() {
         
         // Get a URL that points to the saved JSON data containing our list of favourite jokes
         let filename = getDocumentsDirectory().appendingPathComponent(fileLabel)
@@ -84,7 +88,7 @@ class PictureViewModel: ObservableObject {
         
     }
     // Write favourite jokes to file on device
-    func persistFavouriteQuotes() {
+    func presistPictures() {
         
         // Get a URL that points to the saved JSON data containing our list of people
         let filename = getDocumentsDirectory().appendingPathComponent(fileLabel)
