@@ -13,6 +13,7 @@
 		F47CEFC72DAFEA0900D6AC29 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47CEFBF2DAFEA0900D6AC29 /* Preview Assets.xcassets */; };
 		F47CEFC82DAFEA0900D6AC29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47CEFC12DAFEA0900D6AC29 /* Assets.xcassets */; };
 		F47CEFCD2DAFEABF00D6AC29 /* PictureInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47CEFCC2DAFEABF00D6AC29 /* PictureInfoModel.swift */; };
+		F4961E862DDCDBE3003DD18C /* SharedFunctionsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4961E852DDCDBE3003DD18C /* SharedFunctionsAndConstants.swift */; };
 		F49E659B2DDB97DA00B53EEF /* AddNewPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E659A2DDB97DA00B53EEF /* AddNewPictureView.swift */; };
 		F49E65B02DDC314900B53EEF /* Ribbon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E65AF2DDC314900B53EEF /* Ribbon.swift */; };
 		F4AF5A1F2DB13C6F00965255 /* PictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A1E2DB13C6F00965255 /* PictureView.swift */; };
@@ -30,6 +31,7 @@
 		F47CEFC22DAFEA0900D6AC29 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		F47CEFC32DAFEA0900D6AC29 /* PictureStoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureStoryApp.swift; sourceTree = "<group>"; };
 		F47CEFCC2DAFEABF00D6AC29 /* PictureInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInfoModel.swift; sourceTree = "<group>"; };
+		F4961E852DDCDBE3003DD18C /* SharedFunctionsAndConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFunctionsAndConstants.swift; sourceTree = "<group>"; };
 		F49E659A2DDB97DA00B53EEF /* AddNewPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPictureView.swift; sourceTree = "<group>"; };
 		F49E65AF2DDC314900B53EEF /* Ribbon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ribbon.swift; sourceTree = "<group>"; };
 		F4AF5A1E2DB13C6F00965255 /* PictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureView.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		F47CEFC42DAFEA0900D6AC29 /* PictureStory */ = {
 			isa = PBXGroup;
 			children = (
+				F4961E842DDCDBB7003DD18C /* Shared */,
 				F4961E832DDCDA34003DD18C /* Shapes */,
 				F47CEFC92DAFEA1700D6AC29 /* Models */,
 				F47CEFCA2DAFEA1D00D6AC29 /* ViewModels */,
@@ -124,6 +127,14 @@
 				F49E65AF2DDC314900B53EEF /* Ribbon.swift */,
 			);
 			path = Shapes;
+			sourceTree = "<group>";
+		};
+		F4961E842DDCDBB7003DD18C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F4961E852DDCDBE3003DD18C /* SharedFunctionsAndConstants.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4961E862DDCDBE3003DD18C /* SharedFunctionsAndConstants.swift in Sources */,
 				F49E659B2DDB97DA00B53EEF /* AddNewPictureView.swift in Sources */,
 				F47CEFC52DAFEA0900D6AC29 /* MainTabView.swift in Sources */,
 				F4AF5A292DB13E3900965255 /* PictureViewModel.swift in Sources */,
