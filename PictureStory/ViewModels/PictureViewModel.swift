@@ -149,4 +149,9 @@ class PictureViewModel: ObservableObject {
             print("Failed to save favourite picture IDs.")
         }
     }
+    func addToThrowBackPictures(for picture: PictureInfo) {
+        if picture.When.formatted(.dateTime.month().day()) == Date().formatted(.dateTime.month().day()) {
+            throwbackPictures.insert(picture, at: 0)
+        }
+    }
 }
