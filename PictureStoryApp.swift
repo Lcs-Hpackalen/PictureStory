@@ -16,7 +16,7 @@ struct PictureStoryApp: App {
     //MARK: Computed Properties
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            IntroView()
                 .environmentObject(ViewModel)
         }
     }

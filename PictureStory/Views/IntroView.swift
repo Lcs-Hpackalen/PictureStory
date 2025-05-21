@@ -10,6 +10,12 @@ import SwiftUI
 struct IntroView: View {
     var body: some View {
         NavigationStack{
+            NavigationLink {
+                MainTabView()
+            } label: {
+                IntroView()
+                    .ignoresSafeArea()
+            }
             ZStack{
                 Color.introColour.ignoresSafeArea()
                 VStack{
@@ -27,6 +33,7 @@ struct IntroView: View {
                         .font(.system(size: 20, weight: .light))
                 }
             }
+            
         }
     }
 }
