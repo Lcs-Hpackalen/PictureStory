@@ -21,9 +21,14 @@ struct PictureView: View {
         NavigationStack{
             
             ZStack{
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(Color.cyan)
-                
+                if viewModel.favouritePictureIDs.contains(currentPicture.id){
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(Color.pink)
+                }
+                else {
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(Color.cyan)
+                }
                 if let uiImage = UIImage(data: currentPicture.Picture) {
                         Image(uiImage: uiImage)
                             .resizable()
