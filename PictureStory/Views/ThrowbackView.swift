@@ -51,49 +51,59 @@ struct ThrowbackView: View {
                 }
             }
             else if isFlipped == true {
-                ZStack{
-                    Color.pink.ignoresSafeArea()
-                    VStack{
-                        Text("Throwback")
-                            .font(.system(size: 32, weight: .bold, design: .default))
-                            .foregroundColor(.white)
-                            .padding(.top)
-                        if let currentPicture = currentPicture {
-                            HStack{
-                                Text("Who:")
-                                    .font(.system(size: 30))
-                                    .bold()
-                                Text("\(currentPicture.Who)")
-                                    .font(.system(size: 20))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                            HStack{
-                                Text("Where:")
-                                    .font(.system(size: 30))
-                                    .bold()
-                                Text("\(currentPicture.Where)")
-                                    .font(.system(size: 20))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                            HStack{
-                                Text("When:")
-                                    .font(.system(size: 30))
-                                    .bold()
-                                Text("\(currentPicture.When.formatted(.dateTime.day().month().year()))")
-                                    .font(.system(size: 20))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                            VStack{
-                                Text("Story:")
-                                    .font(.system(size: 30))
-                                    .bold()
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                Text("\(currentPicture.Story)")
-                                    .font(.system(size: 20))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                NavigationStack(){
+                    ZStack(alignment: .topLeading){
+                        LinearGradient(
+                            gradient: Gradient(colors: [
+                                Color(red: 0.98, green: 0.95, blue: 0.80),
+                                Color(red: 0.83, green: 0.75, blue: 0.68)
+                            ]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        ).ignoresSafeArea()
+                        VStack{
+                            Text("Throwback")
+                                .font(.system(size: 32, weight: .bold, design: .rounded))
+                                .foregroundColor(.purple)
+                                .padding(.top)
+                            if let currentPicture = currentPicture {
+                                HStack{
+                                    Text("Who:")
+                                        .font(.system(size: 40))
+                                        .bold()
+                                    Text("\(currentPicture.Who)")
+                                        .font(.system(size: 25))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }
+                                HStack{
+                                    Text("Where:")
+                                        .font(.system(size: 40))
+                                        .bold()
+                                    Text("\(currentPicture.Where)")
+                                        .font(.system(size: 25))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }
+                                HStack{
+                                    Text("When:")
+                                        .font(.system(size: 40))
+                                        .bold()
+                                    Text("\(currentPicture.When.formatted(.dateTime.day().month().year()))")
+                                        .font(.system(size: 25))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }
+                                VStack{
+                                    Text("Story:")
+                                        .font(.system(size: 40))
+                                        .bold()
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                    Text("\(currentPicture.Story)")
+                                        .font(.system(size: 25))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }
                             }
                         }
                     }
+
                 }
                 .onTapGesture{
                     isFlipped.toggle()
