@@ -27,24 +27,76 @@ struct ThrowbackView: View {
                             Text("Throwback")
                                 .font(.system(size: 32, weight: .bold, design: .default))
                                 .foregroundColor(.white)
-                                .padding(.top)
+                            
                         }
-                
+                        
                         ZStack{
                             Color.brown
                                 .scaledToFill()
                             if let currentPicture = currentPicture,
-                                let uiImage = UIImage(data: currentPicture.Picture) {
-                                    Image(uiImage: uiImage)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .padding()
-                                        .padding()
+                               let uiImage = UIImage(data: currentPicture.Picture) {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding()
+                                    .padding()
                             } else {
-                                    Text("Image failed to load")
-                                }
+                                Text("Image failed to load")
+                            }
                         }
                     }
+                }
+                .onTapGesture{
+                    isFlipped.toggle()
+                }
+            }
+            else if isFlipped == true {
+                ZStack{
+                    Color.pink.ignoresSafeArea()
+                    VStack{
+                        Text("Throwback")
+                            .font(.system(size: 32, weight: .bold, design: .default))
+                            .foregroundColor(.white)
+                            .padding(.top)
+                        if let currentPicture = currentPicture {
+                            HStack{
+                                Text("Who:")
+                                    .font(.system(size: 30))
+                                    .bold()
+                                Text("\(currentPicture.Who)")
+                                    .font(.system(size: 20))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            HStack{
+                                Text("Where:")
+                                    .font(.system(size: 30))
+                                    .bold()
+                                Text("\(currentPicture.Where)")
+                                    .font(.system(size: 20))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            HStack{
+                                Text("When:")
+                                    .font(.system(size: 30))
+                                    .bold()
+                                Text("\(currentPicture.When.formatted(.dateTime.day().month().year()))")
+                                    .font(.system(size: 20))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            VStack{
+                                Text("Story:")
+                                    .font(.system(size: 30))
+                                    .bold()
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                Text("\(currentPicture.Story)")
+                                    .font(.system(size: 20))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                        }
+                    }
+                }
+                .onTapGesture{
+                    isFlipped.toggle()
                 }
             }
         }
