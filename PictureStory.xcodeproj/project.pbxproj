@@ -110,10 +110,10 @@
 		F47CEFCB2DAFEA2500D6AC29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F47CEFC22DAFEA0900D6AC29 /* MainTabView.swift */,
 				F4AF5A1E2DB13C6F00965255 /* PictureView.swift */,
 				F4AF5A202DB13C8500965255 /* favouritePictures.swift */,
 				F4AF5A222DB13D4700965255 /* ThrowbackView.swift */,
-				F47CEFC22DAFEA0900D6AC29 /* MainTabView.swift */,
 				F4AF5A262DB13D8500965255 /* PicturesListView.swift */,
 				F462D5CF2DD95B6700D13460 /* DetailPictureView.swift */,
 				F49E659A2DDB97DA00B53EEF /* AddNewPictureView.swift */,

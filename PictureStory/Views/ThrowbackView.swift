@@ -28,19 +28,19 @@ struct ThrowbackView: View {
                                 .font(.system(size: 32, weight: .bold, design: .default))
                                 .foregroundColor(.white)
                                 .padding(.top)
-                                .padding(.top)
                         }
+                
                         ZStack{
                             Color.brown
-                                .scaledToFit()
-                            if let uiImage = UIImage(data: currentPicture!.Picture) {
+                                .scaledToFill()
+                            if let currentPicture = currentPicture,
+                                let uiImage = UIImage(data: currentPicture.Picture) {
                                     Image(uiImage: uiImage)
                                         .resizable()
                                         .scaledToFit()
                                         .padding()
-                                        .background(Color.brown)
                                         .padding()
-                                } else {
+                            } else {
                                     Text("Image failed to load")
                                 }
                         }
