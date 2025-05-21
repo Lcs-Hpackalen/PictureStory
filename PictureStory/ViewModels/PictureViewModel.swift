@@ -15,7 +15,7 @@ import Combine
 class PictureViewModel: ObservableObject {
     //MARK: Stored Properties
     
-    @Published var currentPicture: PictureInfo? = example2
+    @Published var currentPicture: PictureInfo?
     
     @Published var pictures: [PictureInfo] = [example4, example2, example3]
     
@@ -34,6 +34,7 @@ class PictureViewModel: ObservableObject {
     init(){
         loadSavedPictures()
         loadFavouritePictureIDs()
+        addToThrowBackPictures()
     }
     
     //MARK: Functions
@@ -149,9 +150,11 @@ class PictureViewModel: ObservableObject {
             print("Failed to save favourite picture IDs.")
         }
     }
-    func addToThrowBackPictures(for picture: PictureInfo) {
-        if picture.When.formatted(.dateTime.month().day()) == Date().formatted(.dateTime.month().day()) {
-            throwbackPictures.insert(picture, at: 0)
+    func addToThrowBackPictures() {
+        for picture in pictures {
+            if picture.When.formatted(.dateTime.month().day()) == Date().formatted(.dateTime.month().day()) {
+                throwbackPictures.insert(picture, at: 0)
+            }
         }
     }
 }
