@@ -21,6 +21,7 @@
 		F4AF5A232DB13D4700965255 /* ThrowbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A222DB13D4700965255 /* ThrowbackView.swift */; };
 		F4AF5A272DB13D8500965255 /* PicturesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A262DB13D8500965255 /* PicturesListView.swift */; };
 		F4AF5A292DB13E3900965255 /* PictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF5A282DB13E2E00965255 /* PictureViewModel.swift */; };
+		F4DCD90F2DDE44970005E7E8 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DCD90E2DDE44970005E7E8 /* IntroView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		F4AF5A222DB13D4700965255 /* ThrowbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowbackView.swift; sourceTree = "<group>"; };
 		F4AF5A262DB13D8500965255 /* PicturesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesListView.swift; sourceTree = "<group>"; };
 		F4AF5A282DB13E2E00965255 /* PictureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewModel.swift; sourceTree = "<group>"; };
+		F4DCD90E2DDE44970005E7E8 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				F4AF5A262DB13D8500965255 /* PicturesListView.swift */,
 				F462D5CF2DD95B6700D13460 /* DetailPictureView.swift */,
 				F49E659A2DDB97DA00B53EEF /* AddNewPictureView.swift */,
+				F4DCD90E2DDE44970005E7E8 /* IntroView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				F49E659B2DDB97DA00B53EEF /* AddNewPictureView.swift in Sources */,
 				F47CEFC52DAFEA0900D6AC29 /* MainTabView.swift in Sources */,
 				F4AF5A292DB13E3900965255 /* PictureViewModel.swift in Sources */,
+				F4DCD90F2DDE44970005E7E8 /* IntroView.swift in Sources */,
 				F462D5D02DD95B6700D13460 /* DetailPictureView.swift in Sources */,
 				F4AF5A212DB13C8500965255 /* favouritePictures.swift in Sources */,
 				F4AF5A232DB13D4700965255 /* ThrowbackView.swift in Sources */,
