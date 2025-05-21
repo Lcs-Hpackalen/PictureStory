@@ -10,6 +10,7 @@ import SwiftUI
 struct ThrowbackView: View {
     //MARK: Stored Properties
     var currentPicture: PictureInfo?
+    { viewModel.throwbackPictures.first}
     
     @EnvironmentObject var viewModel: PictureViewModel
     
@@ -21,35 +22,46 @@ struct ThrowbackView: View {
         NavigationStack {
             if viewModel.throwbackPictures.count != 0 {
                 if isFlipped == false {
-                    ZStack(alignment: .top){
-                        Color.pink.ignoresSafeArea()
-                        VStack{
-                            ZStack(alignment: .top){
-                                Ribbon()
-                                Text("Throwback")
-                                    .font(.system(size: 32, weight: .bold, design: .default))
-                                    .foregroundColor(.white)
-                                
-                            }
-                            ZStack{
-                                Color.brown
-                                    .scaledToFit()
-                                if let currentPicture = currentPicture,
-                                   let uiImage = UIImage(data: currentPicture.Picture) {
-                                    Image(uiImage: uiImage)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .padding()
-                                        .padding()
-                                } else {
-                                    Text("Image failed to load")
+                    NavigationStack{
+                        ZStack(alignment: .top){
+                            Color.pink.ignoresSafeArea()
+                            VStack{
+                                ZStack(alignment: .top){
+                                    Ribbon()
+                                    Text("Throwback")
+                                        .font(.system(size: 32, weight: .bold, design: .default))
+                                        .foregroundColor(.white)
+                                    
                                 }
-                                Spacer()
+                                ZStack{
+                                    Color.brown
+                                        .scaledToFit()
+                                    if let currentPicture = currentPicture,
+                                       let uiImage = UIImage(data: currentPicture.Picture) {
+                                        Image(uiImage: uiImage)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .padding()
+                                            .padding()
+                                    } else {
+                                        Text("Image failed to load")
+                                    }
+                                    Spacer()
+                                }
                             }
                         }
-                    }
-                    .onTapGesture{
-                        isFlipped.toggle()
+                        .onTapGesture{
+                            isFlipped.toggle()
+                        }
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button {
+                                    viewModel.removeFromThrowBackPictures()
+                                } label: {
+                                    Text("Next->")
+                                }
+                            }
+                            }
                     }
                 }
                 else if isFlipped == true {
@@ -105,8 +117,17 @@ struct ThrowbackView: View {
                                 }
                             }
                         }
-                        
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button {
+                                    viewModel.removeFromThrowBackPictures()
+                                } label: {
+                                    Text("Next->")
+                                }
+                            }
+                            }
                     }
+                    
                     .onTapGesture{
                         isFlipped.toggle()
                     }
@@ -119,11 +140,13 @@ struct ThrowbackView: View {
                         .bold()
                     Text("Throwback Pictures will apear when a picture date is an even year ago!")
                 }
+                .background(.cyan)
+                .ignoresSafeArea()
             }
         }
     }
 }
 #Preview {
-    ThrowbackView(currentPicture: example3)
+    ThrowbackView()
         .environmentObject(PictureViewModel())
 }

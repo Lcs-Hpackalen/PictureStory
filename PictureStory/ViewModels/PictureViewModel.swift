@@ -157,4 +157,11 @@ class PictureViewModel: ObservableObject {
             }
         }
     }
+    func removeFromThrowBackPictures() {
+        for currentPicture in throwbackPictures {
+            if !pictures.contains(where: { $0.id == currentPicture.id }) {
+                throwbackPictures.removeAll { $0.id == currentPicture.id }
+            }
+        }
+    }
 }

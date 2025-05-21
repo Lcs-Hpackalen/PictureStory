@@ -20,7 +20,7 @@ struct PictureInfo: Identifiable, Codable{
  
 let example4 = PictureInfo(
     Picture: UIImage(named: "Example1")!.jpegData(compressionQuality: 1.0)!,
-    When: Calendar.current.date(from : DateComponents(year: 2024, month: 11, day: 15)) ?? Date(),
+    When: Calendar.current.date(from : DateComponents(year: 2024, month: 05, day: 21)) ?? Date(),
     Where: "Kingston",
     Who: "Hannu and Dr.Borshnick",
     Story: "Dr.Borshnick helped Hannu through his Achilles injury. This was the day he was cleared to return to the ice."
@@ -28,7 +28,7 @@ let example4 = PictureInfo(
 
 let example2 = PictureInfo(
     Picture: UIImage(named: "Example2")!.jpegData(compressionQuality: 1.0)!,
-    When: Calendar.current.date(from: DateComponents(year: 2024, month: 11, day: 15)) ?? Date(),
+    When: Calendar.current.date(from: DateComponents(year: 2024, month: 05, day: 21)) ?? Date(),
     Where: "Ottawa",
     Who: "Kotter, Jack, Zach, and Austin",
     Story: "Final Vipers tournament; everyone in the car as Frank couldn't drive back to the hotel."
