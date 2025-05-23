@@ -34,7 +34,7 @@ struct PictureView: View {
                             .resizable()
                             .scaledToFit()
                             .padding()
-                            .background(Color.brown)
+                            .background(Color.woodFrame)
                             .padding()
                     } else {
                         Text("Image failed to load")
