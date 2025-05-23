@@ -61,6 +61,7 @@ struct PicturesListView: View {
                             }
                         }
                     }
+                    .listStyle(.plain)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
