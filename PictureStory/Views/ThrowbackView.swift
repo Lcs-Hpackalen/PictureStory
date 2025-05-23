@@ -61,7 +61,7 @@ struct ThrowbackView: View {
                                     Text("Next->")
                                 }
                             }
-                            }
+                        }
                     }
                 }
                 else if isFlipped == true {
@@ -125,23 +125,24 @@ struct ThrowbackView: View {
                                     Text("Next->")
                                 }
                             }
-                            }
-                    }
-                    
-                    .onTapGesture{
-                        isFlipped.toggle()
+                        }
+                        
+                        
+                        .onTapGesture{
+                            isFlipped.toggle()
+                        }
                     }
                 }
-            }
-            else if viewModel.throwbackPictures.count == 0{
-                VStack{
-                    Text("No throwback pictures today!")
-                        .font(.system(size: 40))
-                        .bold()
-                    Text("Throwback Pictures will apear when a picture date is an even year ago!")
+                else if viewModel.throwbackPictures.count == 0{
+                    VStack{
+                        Text("No throwback pictures today!")
+                            .font(.system(size: 40))
+                            .bold()
+                        Text("Throwback Pictures will apear when a picture date is an even year ago!")
+                    }
+                    .background(.cyan)
+                    .ignoresSafeArea()
                 }
-                .background(.cyan)
-                .ignoresSafeArea()
             }
         }
     }
