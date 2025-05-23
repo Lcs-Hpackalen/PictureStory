@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct IntroView: View {
+    //MARK: Stored Properties
+    
+    @EnvironmentObject var viewModel: PictureViewModel
+    
+    //MARK: Computed Properties
     var body: some View {
         NavigationStack{
-            NavigationLink {
-                MainTabView()
-            } label: {
-                IntroView()
-                    .ignoresSafeArea()
-            }
             ZStack{
                 Color.introColour.ignoresSafeArea()
                 VStack{
@@ -32,12 +31,19 @@ struct IntroView: View {
                     Text("Tap anywhere to enter")
                         .font(.system(size: 20, weight: .light))
                 }
+                NavigationLink(destination: MainTabView()) {
+                                    Rectangle()
+                                        .foregroundColor(.clear) // Invisible tappable area
+                                        .contentShape(Rectangle()) // Ensures entire area is tappable
+                                }
+                                .buttonStyle(.plain) // Prevent default button styling
+                                .ignoresSafeArea()
             }
-            
         }
     }
 }
 
 #Preview {
     IntroView()
+        .environmentObject(PictureViewModel())
 }
