@@ -18,9 +18,6 @@ struct PicturesListView: View {
             ZStack{
                 Color(.mint).ignoresSafeArea()
                 VStack{
-                    HStack{
-                        
-                    }
                     ZStack{
                         RoundedRectangle(cornerRadius: 20)
                             .fill(Color.pink)
@@ -38,41 +35,51 @@ struct PicturesListView: View {
                             PictureView(currentPicture: currentPicture)
                         }
                         .swipeActions(edge: .leading) {
-                                        Button(role: .destructive) {
-                                            viewModel.deletePicture(Picture: currentPicture)
-                                        } label: {
-                                            Label("Delete", systemImage: "trash")
-                                        }
-                                    }
+                            Button(role: .destructive) {
+                                viewModel.deletePicture(Picture: currentPicture)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
+                        
                         .swipeActions(edge: .trailing) {
-                            Button {
+                            if viewModel.favouritePictureIDs.contains(currentPicture.id) == false {
+                                Button {
                                     viewModel.toggleFavourite(for: currentPicture)
                                 } label: {
                                     Label("Favourite", systemImage: "heart")
                                 }
                                 .tint(.pink)
                             }
+                            if viewModel.favouritePictureIDs.contains(currentPicture.id) == true {
+                                Button{
+                                    viewModel.toggleFavourite(for: currentPicture)
+                                } label: {
+                                    Label("UnFavourite", systemImage: "heart.slash")
+                                }
+                                .tint(.pink)
+                            }
+                        }
+                        .listStyle(.plain)
                     }
-                    .listStyle(.plain)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button {
+                                isShowingAddPictureForm = true
+                            } label: {
+                                Image(systemName: "plus")
+                            }
+                        }
+                    }
+                }
+                .sheet(isPresented: $isShowingAddPictureForm) {
+                    AddNewPictureView(isShowing: $isShowingAddPictureForm)
+                        .environmentObject(viewModel)
                 }
             }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    isShowingAddPictureForm = true
-                } label: {
-                    Image(systemName: "plus")
-                }
-            }
-            }
-        }
-        .sheet(isPresented: $isShowingAddPictureForm) {
-            AddNewPictureView(isShowing: $isShowingAddPictureForm)
-                .environmentObject(viewModel)
         }
     }
 }
-
 #Preview {
     PicturesListView()
         .environmentObject(PictureViewModel())
