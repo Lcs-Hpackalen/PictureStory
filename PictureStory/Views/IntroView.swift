@@ -14,34 +14,32 @@ struct IntroView: View {
     
     //MARK: Computed Properties
     var body: some View {
-        NavigationStack{
-            if hasEntered == true{
-                MainTabView()
-            }
-            else{
-                ZStack{
-                    Color.introColour.ignoresSafeArea()
-                    VStack{
-                        Text("Welcome to Picture Story")
-                            .font(.system(size: 45, weight: .bold))
-                            .foregroundStyle(.pink)
-                        Image("IntroImage")
-                            .resizable()
-                            .scaledToFit()
-                        Text("Capture the moments that mean the most to you")
-                            .font(.system(size: 30, weight: .light))
-                            .foregroundStyle(.cyan)
-                            .padding()
-                        Text("Tap anywhere to enter")
-                            .font(.system(size: 20, weight: .light))
-                    }
-                    Rectangle()
-                        .foregroundStyle(.clear)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            hasEntered = true
-                        }
+        if hasEntered == true{
+            MainTabView()
+        }
+        else{
+            ZStack{
+                Color.introColour.ignoresSafeArea()
+                VStack{
+                    Text("Welcome to Picture Story")
+                        .font(.system(size: 45, weight: .bold))
+                        .foregroundStyle(.pink)
+                    Image("IntroImage")
+                        .resizable()
+                        .scaledToFit()
+                    Text("Capture the moments that mean the most to you")
+                        .font(.system(size: 30, weight: .light))
+                        .foregroundStyle(.cyan)
+                        .padding()
+                    Text("Tap anywhere to enter")
+                        .font(.system(size: 20, weight: .light))
                 }
+                Rectangle()
+                    .foregroundStyle(.clear)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        hasEntered = true
+                    }
             }
         }
     }
