@@ -16,16 +16,16 @@ struct PicturesListView: View {
     var body: some View {
         NavigationStack {
             ZStack{
-                Color(.mint).ignoresSafeArea()
+                Color.lightBlue
+                    .ignoresSafeArea()
                 VStack{
                     ZStack{
                         RoundedRectangle(cornerRadius: 20)
-                            .fill(Color.pink)
+                            .fill(Color.customPink)
                         
                         Text("Picture Story")
                             .font(.system(size: 55))
                     }
-                    .padding()
                     .scaledToFit()
                     
                     List(viewModel.pictures) { currentPicture in
@@ -60,7 +60,6 @@ struct PicturesListView: View {
                                 .tint(.pink)
                             }
                         }
-                        .listStyle(.plain)
                     }
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {

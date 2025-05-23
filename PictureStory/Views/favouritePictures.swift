@@ -21,25 +21,29 @@ struct FavouritesListView: View {
     //MARK: Computed Properties
     var body: some View {
         NavigationStack {
-            VStack{
-                ZStack{
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.pink)
-                    Text("Favourite Pictures")
-                        .font(.system(size: 40))
-                }
-                .padding()
-                .scaledToFit()
-
-                List(favouritePictures) { currentPicture in
-                    
-                    NavigationLink{ DetailPictureView(currentPicture: currentPicture)
-                    } label: {
-                        PictureView(currentPicture: currentPicture)
-                    
+            ZStack{
+                Color.customPink
+                    .ignoresSafeArea()
+                VStack{
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(Color.cyan)
+                        Text("Favourite Pictures")
+                            .font(.system(size: 40))
                     }
+                    .padding()
+                    .scaledToFit()
+                    
+                    List(favouritePictures) { currentPicture in
+                        
+                        NavigationLink{ DetailPictureView(currentPicture: currentPicture)
+                        } label: {
+                            PictureView(currentPicture: currentPicture)
+                            
+                        }
+                    }
+                    .listStyle(.plain)
                 }
-                                .listStyle(.plain)
             }
         }
     }
