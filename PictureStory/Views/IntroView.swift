@@ -34,12 +34,9 @@ struct IntroView: View {
                     Text("Tap anywhere to enter")
                         .font(.system(size: 20, weight: .light))
                 }
-                Rectangle()
-                    .foregroundStyle(.clear)
-                    .contentShape(Rectangle())
+            }
                     .onTapGesture {
                         hasEntered = true
-                    }
             }
         }
     }
