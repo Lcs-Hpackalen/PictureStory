@@ -17,7 +17,7 @@ class PictureViewModel: ObservableObject {
     
     @Published var currentPicture: PictureInfo?
     
-    @Published var pictures: [PictureInfo] = [example4, example2, example3]
+    @Published var pictures: [PictureInfo] = []
     
     @Published var errorMessage: String? = "Please add a new Picture"
     
@@ -25,9 +25,9 @@ class PictureViewModel: ObservableObject {
     
     @Published var favouritePictures: [PictureInfo] = []
     
-    private let picturesFileName = "Pictures"
+    private let picturesFileName = "pictures.json"
     
-    private let favouritePicturesFileName = "FavouritePictures"
+    private let favouritePicturesFileName = "favouritePictures.json"
     
     //MARK: Computed Properties
     
@@ -75,7 +75,7 @@ class PictureViewModel: ObservableObject {
     func loadSavedPictures() {
         
         // Get a URL that points to the saved JSON data containing our list of favourite jokes
-        let filename = getDocumentsDirectory().appendingPathComponent(picturesFileName)
+        let filename = getDocumentsDirectory().appendingPathComponent(fileLabel)
         
         print("Filename we are reading persisted pictures from is:")
         print(filename)
@@ -103,7 +103,7 @@ class PictureViewModel: ObservableObject {
     func persistPictures() {
         
         // Get a URL that points to the saved JSON data containing our list of people
-        let filename = getDocumentsDirectory().appendingPathComponent(picturesFileName)
+        let filename = getDocumentsDirectory().appendingPathComponent(fileLabel)
         
         print("Filename we are writing persisted pictures to is:")
         print(filename)
@@ -139,7 +139,7 @@ class PictureViewModel: ObservableObject {
 
         do {
             let data = try Data(contentsOf: filename)
-           
+            self.favouritePictures = try JSONDecoder().decode([PictureInfo].self, from: data)
         } catch {
             print("Failed to load favourite pictures, starting with empty set.")
             self.favouritePictures = []
@@ -183,8 +183,8 @@ class PictureViewModel: ObservableObject {
         }
     }
     func removeFromThrowBackPictures() {
-        for currentpicture in throwbackPictures {
-            throwbackPictures.removeAll { $0.id == currentpicture.id }
+        for currentPicture in throwbackPictures {
+            throwbackPictures.removeAll { $0.id == currentPicture.id }
         }
     }
 }
