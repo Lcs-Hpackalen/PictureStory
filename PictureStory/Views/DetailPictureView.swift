@@ -26,9 +26,9 @@ struct DetailPictureView: View {
                             .fill(Color.green)
                             .ignoresSafeArea()
                         HStack{
-                            if viewModel.isFavourited(currentPicture) == false {
+                            if currentPicture.isFavourited == false {
                                 Button(action: {
-                                    viewModel.toggleFavourite(for: currentPicture)
+                                    viewModel.favouritePicture(picture: currentPicture)
                                 }) {
                                     Image(systemName: "heart")
                                         .resizable()
@@ -37,7 +37,7 @@ struct DetailPictureView: View {
                                 }
                             } else {
                                 Button(action: {
-                                    viewModel.toggleFavourite(for: currentPicture)
+                                    viewModel.unFavouritePicture(picture: currentPicture)
                                 }) {
                                     Image(systemName: "heart.fill")
                                         .resizable()

@@ -67,7 +67,8 @@ struct AddNewPictureView: View {
                                         When: date,
                                         Where: location,
                                         Who: people,
-                                        Story: story
+                                        Story: story,
+                                        isFavourited: false
                                     )
                                     viewModel.addPicture(picture: newPicture)
                                     

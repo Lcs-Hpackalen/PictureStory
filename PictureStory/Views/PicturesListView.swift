@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PicturesListView: View {
     //MARK: Stored Properties
+    
     @EnvironmentObject var viewModel: PictureViewModel
     
     @State var isShowingAddPictureForm = false
@@ -43,17 +44,17 @@ struct PicturesListView: View {
                         }
                         
                         .swipeActions(edge: .trailing) {
-                            if viewModel.favouritePictureIDs.contains(currentPicture.id) == false {
+                            if currentPicture.isFavourited == false {
                                 Button {
-                                    viewModel.toggleFavourite(for: currentPicture)
+                                    viewModel.favouritePicture(picture: currentPicture)
                                 } label: {
                                     Label("Favourite", systemImage: "heart")
                                 }
                                 .tint(.pink)
                             }
-                            if viewModel.favouritePictureIDs.contains(currentPicture.id) == true {
+                            if currentPicture.isFavourited == true {
                                 Button{
-                                    viewModel.toggleFavourite(for: currentPicture)
+                                    viewModel.unFavouritePicture(picture: currentPicture)
                                 } label: {
                                     Label("UnFavourite", systemImage: "heart.slash")
                                 }

@@ -21,7 +21,7 @@ struct PictureView: View {
         NavigationStack{
             
             ZStack{
-                if viewModel.favouritePictureIDs.contains(currentPicture.id){
+                if currentPicture.isFavourited == true{
                     RoundedRectangle(cornerRadius: 25)
                         .fill(Color.pink)
                 }

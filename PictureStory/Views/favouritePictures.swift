@@ -13,11 +13,7 @@ struct FavouritesListView: View {
     
     
     
-    var favouritePictures: [PictureInfo] {
-            viewModel.pictures.filter { picture in
-                viewModel.favouritePictureIDs.contains(picture.id)
-            }
-        }
+    
     //MARK: Computed Properties
     var body: some View {
         NavigationStack {
@@ -34,7 +30,7 @@ struct FavouritesListView: View {
                     .padding()
                     .scaledToFit()
                     
-                    List(favouritePictures) { currentPicture in
+                    List(viewModel.favouritePictures) { currentPicture in
                         
                         NavigationLink{ DetailPictureView(currentPicture: currentPicture)
                         } label: {

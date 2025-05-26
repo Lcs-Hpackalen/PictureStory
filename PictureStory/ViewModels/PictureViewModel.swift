@@ -23,35 +23,47 @@ class PictureViewModel: ObservableObject {
     
     @Published var throwbackPictures: [PictureInfo] = []
     
-    @Published var favouritePictureIDs: Set<UUID> = []
+    @Published var favouritePictures: [PictureInfo] = []
+    
+    private let picturesFileName = "Pictures"
+    
+    private let favouritePicturesFileName = "FavouritePictures"
+    
     //MARK: Computed Properties
     
     
     //MARK: Initializers
     init(){
         loadSavedPictures()
-        loadFavouritePictureIDs()
+        loadFavouritePictures()
         addToThrowBackPictures()
     }
     
     //MARK: Functions
-    func isFavourited(_ picture: PictureInfo) -> Bool {
-        favouritePictureIDs.contains(picture.id)
-    }
-    
-    func toggleFavourite(for picture: PictureInfo) {
-        if favouritePictureIDs.contains(picture.id) {
-            favouritePictureIDs.remove(picture.id)
-        } else {
-            favouritePictureIDs.insert(picture.id)
+    func favouritePicture(picture: PictureInfo) {
+        if let index = pictures.firstIndex(where: { $0.id == picture.id }) {
+            pictures[index].isFavourited = true
+            if !favouritePictures.contains(where: { $0.id == picture.id }) {
+                favouritePictures.insert(pictures[index], at: 0)
+            }
+            persistPictures()
+            persistFavouritePictures()
         }
-        persistFavouritePictureIDs()
+    }
+
+    func unFavouritePicture(picture: PictureInfo) {
+        if let index = pictures.firstIndex(where: { $0.id == picture.id }) {
+            pictures[index].isFavourited = false
+            favouritePictures.removeAll { $0.id == picture.id }
+            persistPictures()
+            persistFavouritePictures()
+        }
     }
     
     func addPicture(picture: PictureInfo) {
         pictures.insert(picture, at: 0)
         persistPictures()
-        persistFavouritePictureIDs()
+        persistFavouritePictures()
     }
     
     func deletePicture(Picture: PictureInfo){
@@ -63,7 +75,7 @@ class PictureViewModel: ObservableObject {
     func loadSavedPictures() {
         
         // Get a URL that points to the saved JSON data containing our list of favourite jokes
-        let filename = getDocumentsDirectory().appendingPathComponent(fileLabel)
+        let filename = getDocumentsDirectory().appendingPathComponent(picturesFileName)
         
         print("Filename we are reading persisted pictures from is:")
         print(filename)
@@ -91,7 +103,7 @@ class PictureViewModel: ObservableObject {
     func persistPictures() {
         
         // Get a URL that points to the saved JSON data containing our list of people
-        let filename = getDocumentsDirectory().appendingPathComponent(fileLabel)
+        let filename = getDocumentsDirectory().appendingPathComponent(picturesFileName)
         
         print("Filename we are writing persisted pictures to is:")
         print(filename)
@@ -119,33 +131,48 @@ class PictureViewModel: ObservableObject {
             print("Unable to write list of pictures to documents directory.")
         }
     }
-    func loadFavouritePictureIDs() {
-        let filename = getDocumentsDirectory().appendingPathComponent("FavouritePictureIDs")
+    func loadFavouritePictures() {
+        let filename = getDocumentsDirectory().appendingPathComponent(favouritePicturesFileName)
 
         print("Loading favourite picture IDs from:")
         print(filename)
 
         do {
             let data = try Data(contentsOf: filename)
-            let decodedIDs = try JSONDecoder().decode(Set<UUID>.self, from: data)
-            self.favouritePictureIDs = decodedIDs
+           
         } catch {
-            print("Failed to load favourite picture IDs, starting with empty set.")
-            self.favouritePictureIDs = []
+            print("Failed to load favourite pictures, starting with empty set.")
+            self.favouritePictures = []
         }
     }
-    func persistFavouritePictureIDs() {
-        let filename = getDocumentsDirectory().appendingPathComponent("FavouritePictureIDs")
-
-        print("Saving favourite picture IDs to:")
+    func persistFavouritePictures() {
+        // Get a URL that points to the saved JSON data containing our list of people
+        let filename = getDocumentsDirectory().appendingPathComponent(favouritePicturesFileName)
+        
+        print("Filename we are writing persisted pictures to is:")
         print(filename)
-
+        
         do {
-            let data = try JSONEncoder().encode(favouritePictureIDs)
+            
+            // Create an encoder
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            
+            // Encode the list of people we've tracked
+            let data = try encoder.encode(self.favouritePictures)
+            
+            // Actually write the JSON file to the documents directory
             try data.write(to: filename, options: [.atomicWrite, .completeFileProtection])
-            print("Saved favourite IDs successfully.")
+            
+            print("Wrote data to file, contents are:")
+            print(String(data: data, encoding: .utf8)!)
+            
+            print("Saved data to documents directory successfully.")
+            
         } catch {
-            print("Failed to save favourite picture IDs.")
+            
+            print(error)
+            print("Unable to write list of pictures to documents directory.")
         }
     }
     func addToThrowBackPictures() {
