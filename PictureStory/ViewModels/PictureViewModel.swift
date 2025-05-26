@@ -50,14 +50,15 @@ class PictureViewModel: ObservableObject {
     
     func addPicture(picture: PictureInfo) {
         pictures.insert(picture, at: 0)
-        presistPictures()
+        persistPictures()
+        persistFavouritePictureIDs()
     }
     
     func deletePicture(Picture: PictureInfo){
         pictures.removeAll { currentPicture in
             return currentPicture.id == Picture.id
         }
-        presistPictures()
+        persistPictures()
     }
     func loadSavedPictures() {
         
@@ -87,7 +88,7 @@ class PictureViewModel: ObservableObject {
             self.pictures = []
         }
     }
-    func presistPictures() {
+    func persistPictures() {
         
         // Get a URL that points to the saved JSON data containing our list of people
         let filename = getDocumentsDirectory().appendingPathComponent(fileLabel)
