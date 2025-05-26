@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ThrowbackView: View {
     //MARK: Stored Properties
-    var currentPicture: PictureInfo?
-    { viewModel.throwbackPictures.first}
+    var currentPicture: PictureInfo? {
+        viewModel.throwbackPictures.first
+    }
     
     @EnvironmentObject var viewModel: PictureViewModel
     

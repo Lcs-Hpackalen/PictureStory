@@ -19,9 +19,6 @@ class PictureViewModel: ObservableObject {
     
     @Published var pictures: [PictureInfo] = [example4, example2, example3]
     
-    
-    @Published var favouritePictures: [PictureInfo] = []
-    
     @Published var errorMessage: String? = "Please add a new Picture"
     
     @Published var throwbackPictures: [PictureInfo] = []
