@@ -40,6 +40,10 @@ class PictureViewModel: ObservableObject {
     }
     
     //MARK: Functions
+    // NOTE: This code was co-developed with the help of a large language model (ChatGPT).
+    //
+    // You can view my conversation with ChatGPT here:
+    // https://chatgpt.com/share/68351191-c000-8011-ad83-ff0ac28c5526
     func favouritePicture(picture: PictureInfo) {
         if let index = pictures.firstIndex(where: { $0.id == picture.id }) {
             pictures[index].isFavourited = true
@@ -50,7 +54,10 @@ class PictureViewModel: ObservableObject {
             persistFavouritePictures()
         }
     }
-
+    // NOTE: This code was co-developed with the help of a large language model (ChatGPT).
+    //
+    // You can view my conversation with ChatGPT here:
+    // https://chatgpt.com/share/68351191-c000-8011-ad83-ff0ac28c5526
     func unFavouritePicture(picture: PictureInfo) {
         if let index = pictures.firstIndex(where: { $0.id == picture.id }) {
             pictures[index].isFavourited = false

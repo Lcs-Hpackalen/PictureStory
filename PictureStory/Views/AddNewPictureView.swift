@@ -43,6 +43,11 @@ struct AddNewPictureView: View {
                             .frame(height: 200)
                     }
                 }
+                
+                // NOTE: This code was co-developed with the help of a large language model (ChatGPT).
+                // You can view my conversation with ChatGPT here: //https://chatgpt.com/share/68350d91-0430-8011-81fe-42b77a2d208f
+                
+                
                 Section(header: Text("Details")) {
                     TextField("Location", text: $location)
                     TextField("People", text: $people)
