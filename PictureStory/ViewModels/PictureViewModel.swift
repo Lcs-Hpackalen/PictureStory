@@ -33,7 +33,7 @@ class PictureViewModel: ObservableObject {
     
     
     //MARK: Initializers
-    init(){
+    init() {
         loadSavedPictures()
         loadFavouritePictures()
         addToThrowBackPictures()
@@ -50,10 +50,11 @@ class PictureViewModel: ObservableObject {
             if !favouritePictures.contains(where: { $0.id == picture.id }) {
                 favouritePictures.insert(pictures[index], at: 0)
             }
+            }
             persistPictures()
             persistFavouritePictures()
         }
-    }
+    
     // NOTE: This code was co-developed with the help of a large language model (ChatGPT).
     //
     // You can view my conversation with ChatGPT here:
@@ -62,11 +63,11 @@ class PictureViewModel: ObservableObject {
         if let index = pictures.firstIndex(where: { $0.id == picture.id }) {
             pictures[index].isFavourited = false
             favouritePictures.removeAll { $0.id == picture.id }
+        }
             persistPictures()
             persistFavouritePictures()
-        }
+        
     }
-    
     func addPicture(picture: PictureInfo) {
         pictures.insert(picture, at: 0)
         persistPictures()
