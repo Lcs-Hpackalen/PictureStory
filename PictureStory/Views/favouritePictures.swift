@@ -9,10 +9,8 @@ import SwiftUI
 
 struct FavouritesListView: View {
     //MARK: Stored Properties
+    
     @EnvironmentObject var viewModel: PictureViewModel
-    
-    
-    
     
     //MARK: Computed Properties
     var body: some View {

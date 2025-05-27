@@ -27,7 +27,7 @@ class PictureViewModel: ObservableObject {
     
     private let picturesFileName = "pictures.json"
     
-    private let favouritePicturesFileName = "favouritePictures.json"
+    private let favouritePicturesFileName = "favouritePicturesList.json"
     
     //MARK: Computed Properties
     
