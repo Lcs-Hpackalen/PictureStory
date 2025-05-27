@@ -77,6 +77,9 @@ class PictureViewModel: ObservableObject {
         pictures.removeAll { currentPicture in
             return currentPicture.id == Picture.id
         }
+        favouritePictures.removeAll { currentPicture in
+            return currentPicture.id == Picture.id
+        }
         persistPictures()
     }
     func loadSavedPictures() {
