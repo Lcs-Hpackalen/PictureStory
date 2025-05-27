@@ -140,10 +140,10 @@ class PictureViewModel: ObservableObject {
     }
     func loadFavouritePictures() {
         let filename = getDocumentsDirectory().appendingPathComponent(favouritePicturesFileName)
-
+        
         print("Loading favourite picture IDs from:")
         print(filename)
-
+        
         do {
             let data = try Data(contentsOf: filename)
             self.favouritePictures = try JSONDecoder().decode([PictureInfo].self, from: data)

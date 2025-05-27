@@ -62,7 +62,7 @@ struct DetailPictureView: View {
                         } else {
                             Text("Image failed to load")
                         }
-                            
+                        
                     }
                     VStack{
                         HStack{

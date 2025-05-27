@@ -6,7 +6,7 @@
 //
 
 import Foundation
- 
+
 // Return the directory that we can save user data in
 func getDocumentsDirectory() -> URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

@@ -18,7 +18,7 @@ struct PictureInfo: Identifiable, Codable{
     let Story: String
     var isFavourited: Bool
 }
- 
+
 let example4 = PictureInfo(
     Picture: UIImage(named: "Example1")!.jpegData(compressionQuality: 1.0)!,
     When: Calendar.current.date(from : DateComponents(year: 2024, month: 05, day: 21)) ?? Date(),

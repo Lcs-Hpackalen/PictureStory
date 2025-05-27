@@ -14,7 +14,7 @@ struct PictureView: View {
     
     @EnvironmentObject var viewModel: PictureViewModel
     
-   
+    
     
     //MARK: Computed Properties
     var body: some View {
@@ -30,23 +30,23 @@ struct PictureView: View {
                         .fill(Color.cyan)
                 }
                 if let uiImage = UIImage(data: currentPicture.Picture) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .scaledToFit()
-                            .padding()
-                            .background(Color.woodFrame)
-                            .padding()
-                    } else {
-                        Text("Image failed to load")
-                    }
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                        .background(Color.woodFrame)
+                        .padding()
+                } else {
+                    Text("Image failed to load")
+                }
                 
             }
             
         }
-                .scaledToFit()
-            }
-        }
-    
+        .scaledToFit()
+    }
+}
+
 
 #Preview {
     PictureView(currentPicture: example3)

@@ -11,16 +11,16 @@ import PhotosUI
 struct AddNewPictureView: View {
     //MARK: Stored Properties
     @State private var imageData: Data?
-       @State private var selectedItem: PhotosPickerItem?
-       
-       @State var date: Date = Date()
-       @State var location: String = ""
-       @State var people: String = ""
-       @State var story: String = ""
-       
-       @Binding var isShowing: Bool
-
-       @EnvironmentObject var viewModel: PictureViewModel
+    @State private var selectedItem: PhotosPickerItem?
+    
+    @State var date: Date = Date()
+    @State var location: String = ""
+    @State var people: String = ""
+    @State var story: String = ""
+    
+    @Binding var isShowing: Bool
+    
+    @EnvironmentObject var viewModel: PictureViewModel
     
     //MARK: Computed Properties
     var body: some View {
@@ -61,34 +61,34 @@ struct AddNewPictureView: View {
                 }
             }
             .navigationTitle("Add Picture")
-                        .toolbar{
-                            ToolbarItem(placement: .primaryAction) {
-                                Button {
-                                    guard let imageData = imageData else {
-                                        return
-                                    }
-                                    let newPicture = PictureInfo(
-                                        Picture: imageData,
-                                        When: date,
-                                        Where: location,
-                                        Who: people,
-                                        Story: story,
-                                        isFavourited: false
-                                    )
-                                    viewModel.addPicture(picture: newPicture)
-                                    
-                                    
-                                    isShowing = false
-                                    
-                                
-                                } label: {
-                                    Text("Done")
-                                }
-                            }
+            .toolbar{
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        guard let imageData = imageData else {
+                            return
                         }
+                        let newPicture = PictureInfo(
+                            Picture: imageData,
+                            When: date,
+                            Where: location,
+                            Who: people,
+                            Story: story,
+                            isFavourited: false
+                        )
+                        viewModel.addPicture(picture: newPicture)
+                        
+                        
+                        isShowing = false
+                        
+                        
+                    } label: {
+                        Text("Done")
                     }
                 }
             }
+        }
+    }
+}
 #Preview {
     AddNewPictureView(isShowing: .constant(true))
         .environmentObject(PictureViewModel())

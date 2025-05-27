@@ -35,8 +35,8 @@ struct IntroView: View {
                         .font(.system(size: 20, weight: .light))
                 }
             }
-                    .onTapGesture {
-                        hasEntered = true
+            .onTapGesture {
+                hasEntered = true
             }
         }
     }
